@@ -1,0 +1,13 @@
+# prefix to be added to name of the resource
+namePrefix: staging-
+commonLabels:
+  env: staging
+# directory contains base yaml
+bases:
+  - ../../base
+# patch strategy
+patchesStrategicMerge:
+  - configmap.yaml
+  - order-api.yaml
+  - worker-service.yaml
+  - secret.yaml

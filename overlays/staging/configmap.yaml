@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microservice-configmap
+data:
+  ASPNETCORE_ENVIRONMENT: "STAGING"
+  MASS_TRANSIT_IS_USING_AZURE_SERVICE_BUS: "true"
