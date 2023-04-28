@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-service
+  labels:
+    app: workerservice
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: workerservice
+  template:
+    metadata:
+      labels:
+        app: workerservice
+    spec:
+      containers:
+      - name: workerservice
+        image: nhatthai/azure-opentelemetry-worker-service:latest
+        imagePullPolicy: Always
+        env:
+        - name: DOTNET_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: DOTNET_ENVIRONMENT
+
+        - name: ASPNETCORE_URLS
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: ASPNETCORE_URLS
+
+        - name: MassTransit__IsUsingAzureServiceBus
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: MASS_TRANSIT_IS_USING_AZURE_SERVICE_BUS
+
+        - name: MassTransit__AzureServiceBus
+          valueFrom:
+            secretKeyRef:
+              name: microservice-secret
+              key: MASS_TRANSIT_AZURE_SERVICE_BUS
+
+        - name: Serilog__WriteTo__0__Args__path
+          value: "./logs/Azure.OpenTelemetry.WorkerService.logs.json"
+
+        - name: OpenTelemetry__IsAzureExporter
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: OPEN_TELEMETRY_IS_AZURE_EXPORTER
+
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m

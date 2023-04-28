@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: worker-service
+  labels:
+    app: workerservice
+spec:
+  selector:
+    app: workerservice
+  ports:
+  - protocol: TCP
+    port: 80

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-api
+  labels:
+    app: orderapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orderapi
+  template:
+    metadata:
+      labels:
+        app: orderapi
+    spec:
+      containers:
+      - name: orderapi
+        image: nhatthai/azure-opentelemetry-order-api:latest
+        imagePullPolicy: Always
+        env:
+        - name: PATH_BASE
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: PATH_BASE
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: ASPNETCORE_ENVIRONMENT
+        - name: ASPNETCORE_URLS
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: ASPNETCORE_URLS
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m

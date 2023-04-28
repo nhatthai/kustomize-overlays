@@ -1,0 +1,11 @@
+# common labels to be added on all manifests
+commonLabels:
+  app: demo
+
+# resources that needs to be kustomized
+resources:
+  - configmap.yaml
+  - order-api.yaml
+  - order-api-service.yaml
+  - worker-service.yaml
+  - worker-service-svc.yaml

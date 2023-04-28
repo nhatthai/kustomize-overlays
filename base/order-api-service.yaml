@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: order-api
+  labels:
+    app: orderapi
+spec:
+  selector:
+    app: orderapi
+  ports:
+  - protocol: TCP
+    port: 80
