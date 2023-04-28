@@ -1,0 +1,12 @@
+# prefix to be added to name of the resource
+namePrefix: test-
+commonLabels:
+  env: test
+# directory contains base yaml
+bases:
+  - ../../base
+# patch strategy
+patchesStrategicMerge:
+  - configmap.yaml
+  - order-api.yaml
+  - worker-service.yaml
