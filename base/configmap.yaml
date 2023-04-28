@@ -4,7 +4,9 @@ metadata:
   name: microservice-configmap
 data:
   ASPNETCORE_ENVIRONMENT: "Development"
-  PATH_BASE: "/"
   ASPNETCORE_URLS: "http://0.0.0.0:80"
   MASS_TRANSIT_IS_USING_AZURE_SERVICE_BUS: "false"
+  MASS_TRANSIT_IS_USING_RABBITMQ: "true"
+  MASS_TRANSIT_RABBITMQ: "rabbitmq://guest:guest@rabbitmq:5671/"
   OPEN_TELEMETRY_IS_AZURE_EXPORTER: "false"
+  PATH_BASE: "/"

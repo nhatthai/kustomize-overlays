@@ -9,3 +9,4 @@ resources:
   - order-api-service.yaml
   - worker-service.yaml
   - worker-service-svc.yaml
+  - secret.yaml

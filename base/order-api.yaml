@@ -34,6 +34,31 @@ spec:
             configMapKeyRef:
               name: microservice-configmap
               key: ASPNETCORE_URLS
+
+        - name: MassTransit__IsUsingAzureServiceBus
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: MASS_TRANSIT_IS_USING_AZURE_SERVICE_BUS
+
+        - name: MassTransit__AzureServiceBus
+          valueFrom:
+            secretKeyRef:
+              name: microservice-secret
+              key: MASS_TRANSIT_AZURE_SERVICE_BUS
+
+        - name: MassTransit__IsUsingRabbitMQ
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: MASS_TRANSIT_IS_USING_RABBITMQ
+
+        - name: MassTransit__MessageBusRabbitMQ
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-configmap
+              key: MASS_TRANSIT_RABBITMQ
+
         ports:
         - containerPort: 80
         resources:
