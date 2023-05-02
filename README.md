@@ -9,7 +9,7 @@
 
 ![GitOps with ArgoCD](./images/GitOps-with-ArgoCD.png)
 
-### Usage
+### Using Kustomize CLI
 + Build Base
     ```
     kustomize build .\base
