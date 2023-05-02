@@ -1,7 +1,7 @@
 # prefix to be added to name of the resource
-namePrefix: staging-
+namePrefix: prod-
 commonLabels:
-  env: staging
+  env: prod
 # directory contains base yaml
 bases:
   - ../../base

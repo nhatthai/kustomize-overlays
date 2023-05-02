@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: microservice-configmap
 data:
-  ASPNETCORE_ENVIRONMENT: "STAGING"
+  ASPNETCORE_ENVIRONMENT: "PROD"
   MASS_TRANSIT_IS_USING_AZURE_SERVICE_BUS: "true"
   MASS_TRANSIT_IS_USING_RABBITMQ: "false"
   MASS_TRANSIT_RABBITMQ: "rabbitmq://guest:guest@rabbitmq:5671/"

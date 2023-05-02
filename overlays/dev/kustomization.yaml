@@ -1,7 +1,7 @@
 # prefix to be added to name of the resource
-namePrefix: test-
+namePrefix: dev-
 commonLabels:
-  env: test
+  env: dev
 # directory contains base yaml
 bases:
   - ../../base
