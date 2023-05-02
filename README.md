@@ -3,7 +3,7 @@
 
 ### Prerequisite
     + Install Minikube
-    + Install [Kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize/)
+    + Install Kustomize
 
 ### Usage
 + Build Base
@@ -11,12 +11,12 @@
     kustomize build .\base
     ```
 
-+ Preview output in Test
++ Preview output in Dev
     ```
-    kustomize build overlays/test
+    kustomize build overlays/dev
     ```
 
-+ Apply/Deploy output in Test
++ Apply/Deploy output in Dev
     ```
-    kustomize build overlays/test | kubectl apply -f -
+    kustomize build overlays/dev | kubectl apply -f -
     ```
