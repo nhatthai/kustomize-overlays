@@ -1,7 +1,7 @@
 # Kustomize Overlays
     Example: create overlays for each environment using Kustomize
-    Deploy order api and worker service on Minikube using Kustomize
-    Deploy order api and worker service with ArgoCD(GitOps)
+    + Deploy order api and worker service on Minikube using Kustomize
+    + Deploy order api and worker service with ArgoCD(GitOps)
 
 ### Prerequisites
     + Install Minikube
